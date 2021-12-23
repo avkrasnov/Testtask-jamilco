@@ -1,0 +1,13 @@
+/*.log
+/*.sql
+/*.txt
+!/robots.txt
+/sitemap*.xml
+/*.dt
+/*.tar.gz
+/*.gz
+/*.tar
+/*.bak
+/*.old
+/bitrix
+/upload
