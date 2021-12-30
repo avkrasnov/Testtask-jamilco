@@ -3,7 +3,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Тестовое задание для Jamilco");
 ?>
 
-$USER->Authorize(1);
+<?$USER->Authorize(1);?>
 
 <?$APPLICATION->IncludeComponent(
 	"bitrix:menu",
