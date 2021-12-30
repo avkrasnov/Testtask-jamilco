@@ -18,7 +18,7 @@ Extension::load('ui.bootstrap4');?>
 				"FILTER_NAME" => "arrFilter",
 				"FILTER_VIEW_MODE" => "horizontal",
 				"HIDE_NOT_AVAILABLE" => "N",
-				"IBLOCK_ID" => "8",
+				"IBLOCK_ID" => getIBlockIDByCode('routes'),
 				"IBLOCK_TYPE" => "trains",
 				"PAGER_PARAMS_NAME" => "arrPager",
 				"POPUP_POSITION" => "left",
@@ -35,6 +35,18 @@ Extension::load('ui.bootstrap4');?>
 			)
 		);?>
 	</div>
+	<?
+		$propertyId = getIBlockPropertyIDByCode('departure_date', 'routes');
+		$nowDate = new \Bitrix\Main\Type\DateTime;
+		if (isset($_GET) && isset($_GET['arrFilter_'.$propertyId.'_MIN']) && $_GET['arrFilter_'.$propertyId.'_MIN']) {
+			$filterDate = new \Bitrix\Main\Type\DateTime($_GET['arrFilter_'.$propertyId.'_MIN']);
+			if ($filterDate < $nowDate) {
+				$arrFilter['><PROPERTY_'.$propertyId][0] = $nowDate->format('Y-m-d 00:00:00');
+			}
+		} else {
+			$arrFilter['>=PROPERTY_'.$propertyId] = $nowDate->format('Y-m-d 00:00:00');
+		}
+	?>
 	<?$APPLICATION->IncludeComponent(
 		"bitrix:news.list",
 		"routes",
@@ -61,7 +73,7 @@ Extension::load('ui.bootstrap4');?>
 			"FIELD_CODE" => array("",""),
 			"FILTER_NAME" => "arrFilter",
 			"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-			"IBLOCK_ID" => "8",
+			"IBLOCK_ID" => getIBlockIDByCode('routes'),
 			"IBLOCK_TYPE" => "trains",
 			"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 			"INCLUDE_SUBSECTIONS" => "Y",

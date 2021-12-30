@@ -17,6 +17,16 @@ function getIBlockIDByCode($code) {
 	return $row ? $row['ID'] : 0;
 }
 
+function getIBlockPropertyIDByCode($code, $ibcode) {
+	if (!is_numeric($ibcode)) $ibcode = getIBlockIDByCode($ibcode);
+	\Bitrix\Main\Loader::includeModule('iblock');
+	$row = \Bitrix\Iblock\PropertyTable::getRow([
+		'select' => ['ID'],
+		'filter' => ['CODE' => $code, 'IBLOCK_ID' => $ibcode]
+	]);
+	return $row ? $row['ID'] : 0;
+}
+
 function format_text($text, $n = 1) {
 	$n = intval($n);
 	list($word_one, $word_two, $word_five) = explode('|', $text);
