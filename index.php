@@ -3,8 +3,6 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Тестовое задание для Jamilco");
 ?>
 
-<?CUser::Delete(2);?>
-
 <?$APPLICATION->IncludeComponent(
 	"bitrix:menu",
 	"",
