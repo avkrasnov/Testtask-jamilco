@@ -1,0 +1,11 @@
+.logo {
+	width: 180px;
+}
+.btn-primary.btn-pink {
+	background-color: #ff83d2;
+	border-color: #ff83d2;
+}
+.btn-primary.btn-pink:hover {
+	background-color: #ff2fb3;
+	border-color: #ff2fb3;
+}

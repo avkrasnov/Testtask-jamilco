@@ -13,7 +13,7 @@
 
 	<body>
 		<?$APPLICATION->ShowPanel();?>
-		<header class="h-100">
+		<header>
 			
 		</header>
 
