@@ -41,10 +41,10 @@ Extension::load('ui.bootstrap4');?>
 		if (isset($_GET) && isset($_GET['arrFilter_'.$propertyId.'_MIN']) && $_GET['arrFilter_'.$propertyId.'_MIN']) {
 			$filterDate = new \Bitrix\Main\Type\DateTime($_GET['arrFilter_'.$propertyId.'_MIN']);
 			if ($filterDate < $nowDate) {
-				$arrFilter['><PROPERTY_'.$propertyId][0] = $nowDate->format('Y-m-d 00:00:00');
+				$arrFilter['><PROPERTY_'.$propertyId][0] = $nowDate->format('Y-m-d H:i:s');
 			}
 		} else {
-			$arrFilter['>=PROPERTY_'.$propertyId] = $nowDate->format('Y-m-d 00:00:00');
+			$arrFilter['>=PROPERTY_'.$propertyId] = $nowDate->format('Y-m-d H:i:s');
 		}
 	?>
 	<?$APPLICATION->IncludeComponent(
